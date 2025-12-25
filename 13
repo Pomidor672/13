@@ -1,0 +1,91 @@
+#1
+def alpha(user_string):
+    alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    
+    print(alphabet)
+    
+    used_letters = ""
+    unused_letters = ""
+    
+    for letter in alphabet:
+        if letter in user_string:
+            used_letters += letter
+        else:
+            unused_letters += letter
+    
+    result = used_letters + unused_letters
+    print(result)
+    
+    return result
+
+alpha('пайтон')
+
+#2
+def create_calendar(month, year, days):
+    print(f"calendar: {month} {year}")
+
+    current_day = 1
+
+    while current_day <= days:
+        week = []
+        for _ in range(7):
+            if current_day <= days:
+                week.append(str(current_day))
+                current_day += 1
+            else:
+                break
+
+        print(" ".join(week))
+
+create_calendar('Randomner', 2045, 23)
+
+#3
+def bin_sys(start, end):
+    total = 0
+
+    for num in range(start, end + 1):
+        binary_num = bin(num)[2:]
+        print(binary_num)
+        total += num
+
+    binary_total = bin(total)[2:]
+    print(f"сумма: {binary_total}")
+
+bin_sys(3, 6)
+
+
+#4
+def begin(field, row, col):
+    field[row][col] = '*'
+
+    for r in range(3):
+        row_str = ""
+        for c in range(3):
+            row_str += field[r][c] + " "
+        print(row_str.strip())
+
+field = [['[]', '[]', '[]'],
+         ['[]', '[]', '[]'],
+         ['[]', '[]', '[]']]
+
+begin(field, 1, 2)
+
+#5
+__numbers = lambda n, step=1: [[[n + (i*2 + j)*step] for j in range(2)] for i in range(2)]
+
+def print_field(n, step=1):
+    field = __numbers(n, step)
+    for row in field:
+        print(" ".join(f"[{elem[0]}]" for elem in row))
+
+print("Пример 1:")
+print_field(1)
+
+print("\nПример 2:")
+print_field(1, 3)
+
+#6
+def exam(text, letter):
+    return text.lower().count(letter.lower())
+
+print(exam('My name is Sara.', 's'))
